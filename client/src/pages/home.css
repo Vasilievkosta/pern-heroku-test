@@ -1,0 +1,20 @@
+.home {
+	text-align: center;
+	
+}
+
+.links {
+	display: flex;
+	padding: 15px;
+}
+
+.link {
+	color: blue;
+	margin: 10px;
+}
+.link:first-child {	
+	margin-right: 20px;
+}
+.link:hover {
+	text-decoration: underline;
+}

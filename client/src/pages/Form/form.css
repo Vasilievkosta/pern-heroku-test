@@ -1,0 +1,37 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.1)),
+    url(../../images/cog.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.form {
+  background-color: rgba(140, 140, 245, 0.3);
+  padding: 0 60px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+h1 {
+  color: purple;
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  background-color: rebeccapurple;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0;
+  cursor: pointer;
+}
