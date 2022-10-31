@@ -10,7 +10,7 @@ const Home = () => {
 	if (visible) {
 		return (
 			<div className='home'>
-				<p>This is not build !</p>
+				
 				<div className='links'>
 					<Link to="/form" className='link'>
 						<p>go to "form" page</p>
