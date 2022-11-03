@@ -6,7 +6,6 @@ function Form() {
   const [values, setValues] = React.useState({
     username: '',
     email: '',
-    data: ''
   });
 
   const inputs = [
@@ -31,11 +30,12 @@ function Form() {
     },
     {
       id: 3,
-      name: 'date',
+      name: 'data',
       type: 'date',
       placeholder: 'order date',
       errorMessage: '',
-      label: 'select a date'
+      label: 'select a date',
+      required: true
     },
   ];
 

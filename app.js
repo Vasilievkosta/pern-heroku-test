@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./db');
 
-console.log(JSON.stringify(process.env))
+// console.log(JSON.stringify(process.env))
 const path = require('path');
 
 const PORT = process.env.PORT || 5000;
@@ -17,12 +17,11 @@ app.use(express.static('./client/build'));
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')));
 }
-
-console.log(__dirname);
+// console.log(__dirname);
 
 app.post('/api/createMaster', async (req, res) => {
-	const { name, city } = req.body;
-	const master = await db.query('INSERT INTO master (name, city) values ($1, $2) RETURNING *', [name, city]);
+	const { first_name, email } = req.body;
+	const master = await db.query('INSERT INTO Users (first_name, email) values ($1, $2) RETURNING *', [first_name, email]);
 	console.log(master.rows);
 	if (!req.body) return res.sendStatus(400);
 	res.json(master.rows);
@@ -30,7 +29,7 @@ app.post('/api/createMaster', async (req, res) => {
 });
 
 app.get('/api/masters', async (req, res) => {
-	const masters = await db.query('SELECT * FROM master');
+	const masters = await db.query('SELECT * FROM Users');
 	// console.dir({masters});
 	console.log(masters.rows);
 	res.json(masters.rows);
@@ -38,8 +37,8 @@ app.get('/api/masters', async (req, res) => {
 
 app.delete('/api/deleteMaster/:id', async (req, res) => {
 	const id = req.params.id;
-	const master = await db.query('SELECT master.name FROM master WHERE id = $1', [id]);
-	await db.query('DELETE FROM master WHERE id = $1', [id]);
+	const master = await db.query('SELECT Users.first_name FROM Users WHERE id = $1', [id]);
+	await db.query('DELETE FROM Users WHERE id = $1', [id]);
 
 	console.log('delete', master.rows);
 

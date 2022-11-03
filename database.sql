@@ -1,5 +1,5 @@
-create TABLE master(
+create TABLE Users(
 	id SERIAL PRIMARY KEY,
-	name VARCHAR(50),
-	city VARCHAR(50)	
+	first_name VARCHAR(50),
+	email VARCHAR(50)	
 );

@@ -5,17 +5,17 @@ import Loader from '../../components/Loader';
 
 const Test = () => {
 
-    const [item, setItem] = React.useState({ name: '', city: '' });
+    const [item, setItem] = React.useState({ first_name: '', email: '' });
     const [items, setItems] = React.useState([]);
 	const [isLoading, setLoading] = React.useState(true);
 
 
     const addItem = (e) => {
         e.preventDefault();
-        if (item.name && item.city) {
+        if (item.first_name && item.email) {
             getMaster(item)
             //console.log(item)
-            setItem({ name: '', city: '' });
+            setItem({ first_name: '', email: '' });
         }
     }
 
@@ -54,8 +54,8 @@ const Test = () => {
 
         return (
             <div className='test__master'>
-                <div className='test__item'>{props.name}</div>
-                <div className='test__item'>{props.city}</div>
+                <div className='test__item'>{props.first_name}</div>
+                <div className='test__item'>{props.email}</div>
                 <button className='test__btn' onClick={() => removeMaster(props.id)}>Delete master</button>
             </div>
         )
@@ -80,13 +80,13 @@ const Test = () => {
         <div className='test'>
             <h2>Таблица мастеров</h2>
             <form className='test__form' onSubmit={addItem}>
-                <input value={item.name}
-                    onChange={e => setItem({ ...item, name: e.target.value })}
+                <input value={item.first_name}
+                    onChange={e => setItem({ ...item, first_name: e.target.value })}
                     type='text'
                     placeholder='введите имя мастера'>
 
                 </input>
-                <input value={item.city} onChange={e => setItem({ ...item, city: e.target.value })} type='text' placeholder='введите город мастера'></input>
+                <input value={item.email} onChange={e => setItem({ ...item, email: e.target.value })} type='text' placeholder='введите город мастера'></input>
                 <button>Add master</button>
             </form>
 			{
